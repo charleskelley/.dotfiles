@@ -1,0 +1,146 @@
+syntax on
+
+let mapleader = ' '
+
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+
+set viminfo+=n~/.vim/viminfo
+set undodir=~/.vim/undo
+set undofile
+set noswapfile
+set hidden
+
+set tabstop=4
+set shiftwidth=0
+set expandtab
+set nowrap
+set number
+set relativenumber
+
+let &t_ut=''
+set background=dark
+colorscheme gruvbox " falcon
+
+let g:lightline = {
+  \ 'colorscheme': 'gruvbox',
+  \ 'component': {
+  \   'filename': '%n:%t'
+  \ },
+  \ 'active': {
+  \   'left': [
+  \     ['mode', 'paste' ],
+  \     [ 'gitbranch', 'readonly', 'filename', 'modified' ]
+  \   ]
+  \ },
+  \ 'component_function': {
+  \   'gitbranch': 'FugitiveHead'
+  \ },
+  \ }
+set noshowmode
+
+set colorcolumn=80
+highlight ColorColumn ctermbg=236 guibg=DarkGrey
+highlight Comment cterm=italic
+
+nnoremap <leader>x :Explore .<CR>
+let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
+let g:netrw_list_hide= '.*\.png$,.*\.pdf,.*\.mp4,.*\.tga,.*\.mp3,.*\.jpg,.*\.svg,/*\.stl,.*\.mtl,.*\.ply'
+
+nnoremap & :set hlsearch<CR>*N
+nnoremap * :set hlsearch<CR>*
+nnoremap # :set hlsearch<CR>#
+nnoremap <leader>* :set hlsearch<CR>*N
+nnoremap <leader># :set hlsearch<CR>#N
+nnoremap <Leader><Space> :nohlsearch<Bar>:echo<CR>
+ 
+
+nnoremap <leader>q :bdelete<CR>
+nnoremap <leader>j :bnext<CR>
+nnoremap <leader>k :b#<CR>
+nnoremap <leader>l :bprevious<CR>
+
+nnoremap <Tab>j :tabprevious<CR>
+nnoremap <Tab>k :tabnext<CR>
+ 
+set splitbelow
+set splitright
+nnoremap <Leader>sv :vsp<CR>
+nnoremap <Leader>sh :sp<CR>
+nnoremap <Leader>sq <C-W>q
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+nnoremap <Leader>s= <C-W>=
+nnoremap <Leader>s+ :vertical resize +5<CR>
+nnoremap <Leader>s- :vertical resize -5<CR>
+" nnoremap <Leader>-- :vertical resize +1<CR>
+" nnoremap <Leader>-- :vertical resize -1<CR>
+
+
+" Nice menu when typing `:find *.py`
+set wildmenu
+set wildmode=longest,list,full
+set wildignore+=*.pyc
+set wildignore+=*_build/*
+set wildignore+=**/coverage/*
+set wildignore+=**/node_modules/*
+set wildignore+=**/android/*
+set wildignore+=**/ios/*
+set wildignore+=**/.git/*
+ 
+" Set path python3 because using conda and virtual envs (see :help provider-python)
+" let g:python3_host_prog = '/Users/charles.kelley/Applications/miniconda3/envs/eda/bin/python3'
+ 
+" Helpful remaps
+" map <F1> <Esc>
+" imap <F1> <Esc>
+nnoremap <silent> Q <nop>
+nnoremap <leader>vwh :h <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>bs /<C-R>=escape(expand("<cWORD>"), "/")<CR><CR>
+nnoremap <leader>u :UndotreeShow<CR>
+nnoremap <leader>pv :Ex<CR>
+nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
+nnoremap <Leader>rs :resize 100<CR>
+nnoremap <Leader>ee oif err != nil {<CR>log.Fatalf("%+v\n", err)<CR>}<CR><esc>kkI<esc>
+" nnoremap <Leader>cpu a%" PRIu64 "<esc>
+nnoremap <leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
+ 
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+ 
+vnoremap <leader>p "_dP
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
+nnoremap <leader>Y gg"+yG
+ 
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
+ 
+
+function! EmptyRegisters()
+    let regs=split('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-"', '\zs')
+    for r in regs
+        call setreg(r, [])
+    endfor
+endfunction
+
+
+" fern.vim syple async file explorer
+nnoremap <leader>e :Fern %:h -drawer -toggle -width=40<CR>
+
+
+" fzf fuzzy finder
+set rtp+=/opt/homebrew/opt/fzf    " add fzf to runtime path
+nnoremap <leader>bu :Buffers<CR>  
+nnoremap <leader>ff :Files<CR>
+nnoremap <leader>gf :GFiles<CR>   " git files
+nnoremap <leader>mr :Marks<CR>
+nnoremap <leader>rg :Rg           " search in files using ripgrep
+
+
+" Navigate quickfix list with ease
+nnoremap <silent> [q :cprevious<CR>
+nnoremap <silent> ]q :cnext<CR>
+ 
