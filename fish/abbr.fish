@@ -10,6 +10,7 @@ abbr vf "vifm"
 abbr lg "lazygit"
 
 # Editors
+abbr lv "lvim"
 abbr nv "nvim"
 abbr v "vim"
 
