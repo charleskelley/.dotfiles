@@ -1,40 +1,51 @@
-local opt = vim.opt -- for conciseness
+-- save undo history
+vim.o.undofile = true
 
 -- line numbers
-opt.relativenumber = true
-opt.number = true
+vim.wo.relativenumber = true
+vim.wo.number = true
+
+-- enable mouse mode
+vim.o.mouse = "a"
 
 -- tabs & indentation
-opt.tabstop = 4
-opt.shiftwidth = 4
-opt.expandtab = true -- expand tab to spaces
-opt.autoindent = true -- copy indent from current line when starting new one
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
+vim.o.expandtab = true -- expand tab to spaces
+vim.o.autoindent = true -- copy indent from current line when starting new one
 
 -- line wrapping and textwidth
-opt.wrap = false
-opt.textwidth = 80
+vim.o.wrap = false
+vim.o.textwidth = 80
 
--- search settings
-opt.ignorecase = true
-opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
+-- case insensitive searching unless /c or capital in search
+vim.o.ignorecase = true
+vim.o.smartcase = true
+
+-- decrease update time
+vim.o.updatetime = 250
+vim.wo.signcolumn = "yes"
 
 -- cursor line and ruler highlight
-opt.cursorline = true
-opt.colorcolumn = "80"
+vim.o.cursorline = true
+vim.o.colorcolumn = "80"
 
--- appearance
-opt.termguicolors = true -- turn on termguicolors for truecolor schemes to work properly
-opt.background = "dark" -- colorschemes that can be light or dark will be made dark
-opt.signcolumn = "yes" -- show sign column so that text doesn't shift
+-- truecolor and prefer dark background
+vim.o.termguicolors = true
+vim.o.background = "dark"
 
--- backspace
-opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
+-- allow backspace on indent, end of line or insert mode start position
+vim.o.backspace = "indent,eol,start"
 
--- clipboard
-opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+-- use system clipboard as default register-- clipboard
+vim.opt.clipboard:append("unnamedplus")
 
--- split windows
-opt.splitright = true -- split vertical window to the right
-opt.splitbelow = true -- split horizontal window to the bottom
+-- set completeopt to have a better completion experience
+vim.o.completeopt = "menuone,noselect"
 
-opt.iskeyword:append("-") -- consider string-string as whole word
+-- split veritcal windows up to right and horizontal windows below
+vim.o.splitright = true
+vim.o.splitbelow = true
+
+-- consider string-string as whole word
+vim.opt.iskeyword:append("-")

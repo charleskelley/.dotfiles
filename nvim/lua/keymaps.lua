@@ -25,29 +25,20 @@ map("n", "<leader>h", ":nohl<CR>", { desc = "Highlights Off" })
 -- delete single character without copying into register
 map("n", "x", '"_x')
 
+-- quick buffer actions
+map("n", "<Tab>", ":BufferNext<CR>", { desc = "Next Tab" })
+map("n", "<S-Tab>", ":BufferPrevious<CR>", { desc = "Previous Tab" })
+map("n", "<leader>c", ":BufferClose<CR>", { desc = "Close Buffer" })
+
 -- increment/decrement numbers
 map("n", "<leader>+", "<C-a>", { desc = "Increment Number" })
 map("n", "<leader>-", "<C-x>", { desc = "Decrement Number" })
 
--- split window management
-wk.register({
-	s = {
-		name = "Split",
-		v = { "<C-w>v", "Vertical Split" },
-		h = { "<C-w>s", "Horizontal Split" },
-		e = { "<C-w>=", "Equal Split" },
-		q = { ":close<CR>", "Close Split" },
-	},
-}, { prefix = "<leader>" })
-
-map("n", "<leader>tn", ":tabnew<CR>") -- open new tab
-map("n", "<leader>tc", ":tabclose<CR>") -- close current tab
-
 -------------------------------------------------------------------------------
--- plugin keymaps -------------------------------------------------------------
+-- grouped keymaps ------------------------------------------------------------
 -------------------------------------------------------------------------------
 
--- Packer
+-- plugin management
 wk.register({
 	p = {
 		name = "Packer",
@@ -59,12 +50,28 @@ wk.register({
 	},
 }, { prefix = "<leader>" })
 
--- vim-maximizer
-map("n", "<leader>sm", ":MaximizerToggle<CR>") -- toggle split window maximization
+-- split window management
+wk.register({
+	s = {
+		name = "Split",
+		c = { ":close<CR>", "Close Split" },
+		e = { "<C-w>=", "Equal Split" },
+		h = { "<C-w>s", "Horizontal Split" },
+		m = { "<cmd>MaximizerToggle<cr>", "Maximze Split" },
+		v = { "<C-w>v", "Vertical Split" },
+	},
+}, { prefix = "<leader>" })
 
--- bufferline
-map("n", "<Tab>", ":BufferLineCyclePrev<CR>", { desc = "Next buffer tab" })
-map("n", "<S-Tab>", ":BufferLineCycleNext<CR>", { desc = "Previous buffer tab" })
+-- buffer management
+wk.register({
+	b = {
+		name = "Buffer",
+		b = { "<cmd>BufferMovePrevious<cr>", "Backward Move Buffer" },
+		f = { "<cmd>BufferMoveNext<cr>", "Forward Move Buffer" },
+		n = { "<cmd>BufferNext<cr>", "Next Buffer Tab" },
+		p = { "<cmd>BufferPrevious<cr>", "Previous Buffer Tab" },
+	},
+}, { prefix = "<leader>" })
 
 -- nvim-tree
 map("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer

@@ -43,8 +43,7 @@ return packer.startup(function(use)
 	use("folke/which-key.nvim") -- popup with possible key bindings
 	use("nvim-lualine/lualine.nvim") -- statusline
 	use("nvim-tree/nvim-web-devicons") -- development icons
-	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" }) -- buffer tabs in line at top of window
-	use({ "akinsho/toggleterm.nvim", tag = "*" }) -- for quickly launching terminals inside Neovim
+	use({ "romgrk/barbar.nvim", wants = "nvim-tree/nvim-web-devicons" }) -- reorderable buffer bar
 
 	-- themes
 	use("fenetikm/falcon") -- the best black theme period

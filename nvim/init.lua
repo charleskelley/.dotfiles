@@ -6,7 +6,7 @@ require("options")
 
 -- addtitional plugins
 require("plugins.autopairs")
-require("plugins.bufferline")
+require("plugins.barbar")
 require("plugins.comment")
 require("plugins.gitsigns")
 require("plugins.lsp.lspconfig")

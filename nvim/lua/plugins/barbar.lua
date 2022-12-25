@@ -1,8 +1,8 @@
 -- import bufferline plugin safely
-local status, bufferline = pcall(require, "bufferline")
+local status, barbar = pcall(require, "barbar")
 if not status then
 	return
 end
 
 -- load bufferline using default configuration
-bufferline.setup({})
+barbar.setup({})
