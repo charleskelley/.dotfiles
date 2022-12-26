@@ -8,11 +8,11 @@ vim.wo.number = true
 -- enable mouse mode
 vim.o.mouse = "a"
 
--- tabs & indentation
+-- tabs, spaces as tabs, and indentation
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
-vim.o.expandtab = true -- expand tab to spaces
-vim.o.autoindent = true -- copy indent from current line when starting new one
+vim.o.expandtab = true
+vim.o.autoindent = true
 
 -- line wrapping and textwidth
 vim.o.wrap = false
