@@ -1,6 +1,9 @@
 -- save undo history
 vim.o.undofile = true
 
+-- non swap file nuisance
+vim.o.noswapfile = true
+
 -- line numbers
 vim.wo.relativenumber = true
 vim.wo.number = true

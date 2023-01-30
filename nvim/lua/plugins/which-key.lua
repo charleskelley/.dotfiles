@@ -5,7 +5,7 @@ if not which_status then
 end
 
 -- use default which-key configuration by providing none
-which_key.setup({})
+which_key.setup()
 
 -- module return for easy access in kemaps.lua
 return which_key

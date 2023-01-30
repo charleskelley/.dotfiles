@@ -18,12 +18,13 @@ set nowrap
 set number
 set relativenumber
 
+" set nocompatible
 let &t_ut=''
 set background=dark
-colorscheme gruvbox " falcon
+colorscheme falcon 
 
 let g:lightline = {
-  \ 'colorscheme': 'gruvbox',
+  \ 'colorscheme': 'falcon',
   \ 'component': {
   \   'filename': '%n:%t'
   \ },

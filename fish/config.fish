@@ -1,6 +1,15 @@
 # Default editor is Neovim
 set -gx EDITOR nvim
 
+# XDG base directory specification 
+set -gx XDG_DATA_HOME ~/.local/share
+set -gx XDG_CONFIG_HOME ~/.config
+set -gx XDG_STATE_HOME ~/.local/state
+
+# Add import paths 
+fish_add_path /Users/Charles/.local/bin
+# fish_add_path /opt/homebrew/opt/ncurses/bin
+
 # Vim mode
 fish_vi_key_bindings
 

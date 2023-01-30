@@ -13,12 +13,12 @@ local packer_bootstrap = ensure_packer() -- true if packer was just installed
 
 -- autocommand that reloads neovim and installs/updates/removes plugins
 -- when file is saved
--- vim.cmd([[
---   augroup packer_user_config
---     autocmd!
---     autocmd BufWritePost plugins-setup.lua source <afile> | PackerSync
---   augroup end
--- ]])
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins-setup.lua source <afile> | PackerSync
+  augroup end
+]])
 
 -- import packer safely
 local status, packer = pcall(require, "packer")
@@ -39,7 +39,6 @@ return packer.startup(function(use)
 	use("lewis6991/gitsigns.nvim") -- show git line modifications on left hand side
 
 	-- user interface
-	use("christoomey/vim-tmux-navigator") -- tmux and Neovim split window navigation
 	use("folke/which-key.nvim") -- popup with possible key bindings
 	use("nvim-lualine/lualine.nvim") -- statusline
 	use("nvim-tree/nvim-web-devicons") -- development icons

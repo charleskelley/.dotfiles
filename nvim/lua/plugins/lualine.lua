@@ -5,4 +5,4 @@ if not status then
 end
 
 -- load lualine using default configuration
-lualine.setup({})
+lualine.setup()
