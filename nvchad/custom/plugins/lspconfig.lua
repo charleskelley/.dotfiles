@@ -3,7 +3,7 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
 
-local servers = { "pyright", "r-languageserver", "html", "cssls", "tsserver", "clangd" }
+local servers = { "pyright", "r_language_server", "html", "cssls", "tsserver", "clangd" }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
