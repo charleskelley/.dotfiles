@@ -2,7 +2,10 @@ local overrides = require "custom.plugins.overrides"
 
 local plugins = {
 
+  ["mcchrish/zenbones.nvim"] = {},
+
   -- ["goolord/alpha-nvim"] = { disable = false } -- enables dashboard
+  ["folke/which-key.nvim"] = { disable = false },
 
   -- override plugin definition options
   ["neovim/nvim-lspconfig"] = {
@@ -24,6 +27,7 @@ local plugins = {
   ["nvim-tree/nvim-tree.lua"] = {
     override_options = overrides.nvimtree,
   },
+
 
   -- install a plugin
   -- ["max397574/better-escape.nvim"] = {

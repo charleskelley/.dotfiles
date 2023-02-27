@@ -4,7 +4,7 @@ local M = {}
 
 M.ui = {
   theme_toggle = { "falcon", "gruvbox" },
-  theme = "falcon",
+  theme = "chocolate",
 }
 
 
