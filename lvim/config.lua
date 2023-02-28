@@ -12,6 +12,8 @@ lvim.format_on_save.enabled = false
 
 vim.o.relativenumber = true
 vim.o.colorcolumn = "80"
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
 
 -- theme
 lvim.colorscheme = "zenbones"
@@ -74,7 +76,9 @@ lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
+lvim.builtin.nvimtree.setup.view.width = "20%"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
+
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
